@@ -1,8 +1,60 @@
-import React from "react";
+import React, { useState } from "react";
 
 type Props = {};
 
+type CopiedOrderTypes = {
+  item: string;
+  quantity: number;
+  table_no: number;
+  note: string;
+};
+
 const OrderForm = (props: Props) => {
+  const [order, setOrder] = useState({});
+
+  const [orderItem, setOrderItem] = useState<string>("Hamburger");
+  const [orderQuantity, setOrderQuantity] = useState(1);
+  const [orderTableNo, setOrderTableNo] = useState(0);
+  const [orderNote, setOrderNote] = useState("");
+
+  const handleItem = (evt: any) => {
+    setOrderItem(evt.target.value);
+  };
+
+  const handleQuantity = (evt: any) => {
+    setOrderQuantity(evt.target.value);
+  };
+
+  const handleTableNo = (evt: any) => {
+    setOrderTableNo(evt.target.value);
+  };
+
+  const handleNote = (evt: any) => {
+    setOrderNote(evt.target.value);
+  };
+
+  const saveNewOrder = (evt: any) => {
+    evt.preventDefault();
+    const copiedOrder: CopiedOrderTypes = {};
+    copiedOrder.item = orderItem;
+    copiedOrder.quantity = orderQuantity;
+    copiedOrder.table_no = orderTableNo;
+    copiedOrder.note = orderNote;
+    setOrder(copiedOrder);
+    updateOrders(copiedOrder);
+    setOrder({
+      item: "",
+      quantity: 0,
+      table_no: 0,
+      note: "",
+    });
+    setOrderItem("");
+    setOrderQuantity(0);
+    setOrderTableNo(0);
+    setOrderNote("");
+    evt.target.reset();
+  };
+
   return (
     <section>
       {/* SECTION TITLE */}
@@ -18,9 +70,9 @@ const OrderForm = (props: Props) => {
             Choose a food item:
             <select name="food-items" id="food-item-select" required>
               <optgroup label="Menu Items:">
-                <option value="burger">Burger</option>
-                <option value="fries">Fries</option>
-                <option value="salad">Salad</option>
+                <option value="Hamburger">Hamburger</option>
+                <option value="Fries">Fries</option>
+                <option value="Salad">Salad</option>
               </optgroup>
             </select>
           </label>
@@ -60,7 +112,12 @@ const OrderForm = (props: Props) => {
         <div>
           <label>
             Notes:
-            <textarea rows={10} cols={30} />
+            <textarea
+              rows={10}
+              cols={30}
+              name="order-notes"
+              id="order-notes-input"
+            />
           </label>
         </div>
 
