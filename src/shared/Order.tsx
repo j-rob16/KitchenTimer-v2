@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Timer from "./Timer";
 
 type Props = {};
@@ -24,6 +24,12 @@ const Order = (props: Props) => {
       >
         Stop timer
       </button>
+      {completedTime > 0 && (
+        <>
+          <h4>Order completed in:</h4>
+          <span>{Math.floor(completedTime / 1000) % 60} seconds</span>
+        </>
+      )}
     </section>
   );
 };
