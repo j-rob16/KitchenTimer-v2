@@ -1,21 +1,24 @@
+import { OrderType } from "@/shared/types";
 import React, { useState } from "react";
 
-type Props = {};
-
-type CopiedOrderTypes = {
-  item: string;
-  quantity: number;
-  table_no: number;
-  note: string;
+type Props = {
+  updateOrders: (value: OrderType) => void;
 };
 
-const OrderForm = (props: Props) => {
+type CopiedOrderTypes = {
+  item?: string;
+  quantity?: number;
+  table_no?: number;
+  note?: string;
+};
+
+const OrderForm = ({ updateOrders }: Props) => {
   const [order, setOrder] = useState({});
 
   const [orderItem, setOrderItem] = useState<string>("Hamburger");
-  const [orderQuantity, setOrderQuantity] = useState(1);
-  const [orderTableNo, setOrderTableNo] = useState(0);
-  const [orderNote, setOrderNote] = useState("");
+  const [orderQuantity, setOrderQuantity] = useState<number>(1);
+  const [orderTableNo, setOrderTableNo] = useState<number>(0);
+  const [orderNote, setOrderNote] = useState<string>("");
 
   const handleItem = (evt: any) => {
     setOrderItem(evt.target.value);
@@ -35,7 +38,7 @@ const OrderForm = (props: Props) => {
 
   const saveNewOrder = (evt: any) => {
     evt.preventDefault();
-    const copiedOrder: CopiedOrderTypes = {};
+    const copiedOrder: OrderType = {};
     copiedOrder.item = orderItem;
     copiedOrder.quantity = orderQuantity;
     copiedOrder.table_no = orderTableNo;
