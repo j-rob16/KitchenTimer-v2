@@ -13,10 +13,19 @@ function App() {
     setOrders(copiedOrders);
   };
 
+  const updateCompletionTime = (id: number, completedTime: number) => {
+    const copiedOrders: OrderType[] = [...orders];
+    const pendingOrderIndex = copiedOrders.findIndex(
+      (element) => element.id === id
+    );
+    copiedOrders[pendingOrderIndex].completedTime = completedTime;
+    setOrders(copiedOrders);
+  };
+
   return (
     <div className="app">
       <OrderForm updateOrders={updateOrders} />
-      <OrderTable orders={orders} />
+      <OrderTable orders={orders} updateCompletionTime={updateCompletionTime} />
     </div>
   );
 }

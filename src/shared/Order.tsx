@@ -4,7 +4,14 @@ import { OrderType } from "./types";
 
 type Props = {};
 
-const Order = ({ item, table_no, quantity, note, key }: OrderType) => {
+const Order = ({
+  item,
+  table_no,
+  quantity,
+  note,
+  key,
+  updateCompletionTime,
+}: OrderType) => {
   const [orderIsOpen, setOrderIsOpen] = useState(true);
   const [completedTime, setCompletedTime] = useState(0);
 
@@ -12,26 +19,29 @@ const Order = ({ item, table_no, quantity, note, key }: OrderType) => {
     setCompletedTime(time);
   };
 
+  useEffect(() => {
+    updateCompletionTime(key, completedTime);
+  }, [completedTime]);
+
   return (
-    <section>
-      <h3>Timer Test</h3>
-      <div>
+    <tr>
+      <td>{item}</td>
+      <td>{table_no}</td>
+      <td>{quantity}</td>
+      <td>{note}</td>
+      <td>
         <Timer timerIsOn={orderIsOpen} getCompletedTime={getCompletedTime} />
-      </div>
-      <button
-        onClick={() => {
-          setOrderIsOpen(false);
-        }}
-      >
-        Stop timer
-      </button>
-      {completedTime > 0 && (
-        <>
-          <h4>Order completed in:</h4>
-          <span>{Math.floor(completedTime / 1000) % 60} seconds</span>
-        </>
-      )}
-    </section>
+      </td>
+      <td>
+        <button
+          onClick={() => {
+            setOrderIsOpen(false);
+          }}
+        >
+          Complete Order
+        </button>
+      </td>
+    </tr>
   );
 };
 

@@ -4,9 +4,10 @@ import Order from "@/shared/Order";
 
 type Props = {
   orders: Array<OrderType>;
+  updateCompletionTime: (id: number, completedTime: number) => void;
 };
 
-const OrderTable = ({ orders }: Props) => {
+const OrderTable = ({ orders, updateCompletionTime }: Props) => {
   return (
     <section>
       <div>
@@ -14,14 +15,16 @@ const OrderTable = ({ orders }: Props) => {
       </div>
       <div>
         <table>
-          <tr>
-            <th>Item</th>
-            <th>Table No.</th>
-            <th>qty.</th>
-            <th>Note</th>
-            <th>Time Elapsed</th>
-          </tr>
-          <tr>
+          <thead>
+            <tr>
+              <th>Item</th>
+              <th>Table No.</th>
+              <th>qty.</th>
+              <th>Note</th>
+              <th>Time Elapsed</th>
+            </tr>
+          </thead>
+          <tbody>
             {orders.map((order, i) => (
               <Order
                 item={order.item}
@@ -29,9 +32,10 @@ const OrderTable = ({ orders }: Props) => {
                 quantity={order.quantity}
                 note={order.note}
                 key={i}
+                updateCompletionTime={updateCompletionTime}
               />
             ))}
-          </tr>
+          </tbody>
         </table>
       </div>
     </section>

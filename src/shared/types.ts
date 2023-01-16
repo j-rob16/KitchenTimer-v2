@@ -5,4 +5,6 @@ export interface OrderType {
   note?: string;
   id?: number;
   key?: number;
+  completedTime?: number | undefined;
+  updateCompletionTime?: (id: number, completedTime: number) => void;
 }
