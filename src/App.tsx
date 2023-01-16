@@ -1,6 +1,6 @@
 import { useState } from "react";
-import Order from "@/shared/Order";
 import OrderForm from "@/scenes/orderForm";
+import OrderTable from "@/scenes/orderTable";
 import { OrderType } from "@/shared/types";
 
 function App() {
@@ -15,8 +15,8 @@ function App() {
 
   return (
     <div className="app">
-      <Order />
       <OrderForm updateOrders={updateOrders} />
+      <OrderTable orders={orders} />
     </div>
   );
 }

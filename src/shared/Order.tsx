@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
 import Timer from "./Timer";
+import { OrderType } from "./types";
 
 type Props = {};
 
-const Order = (props: Props) => {
+const Order = ({ item, table_no, quantity, note, key }: OrderType) => {
   const [orderIsOpen, setOrderIsOpen] = useState(true);
   const [completedTime, setCompletedTime] = useState(0);
 

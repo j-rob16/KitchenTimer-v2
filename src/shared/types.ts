@@ -4,4 +4,5 @@ export interface OrderType {
   table_no?: number;
   note?: string;
   id?: number;
+  key?: number;
 }

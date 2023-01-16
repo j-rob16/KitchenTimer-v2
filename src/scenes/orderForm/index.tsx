@@ -5,13 +5,6 @@ type Props = {
   updateOrders: (value: OrderType) => void;
 };
 
-type CopiedOrderTypes = {
-  item?: string;
-  quantity?: number;
-  table_no?: number;
-  note?: string;
-};
-
 const OrderForm = ({ updateOrders }: Props) => {
   const [order, setOrder] = useState({});
 
@@ -46,13 +39,13 @@ const OrderForm = ({ updateOrders }: Props) => {
     setOrder(copiedOrder);
     updateOrders(copiedOrder);
     setOrder({
-      item: "",
-      quantity: 0,
+      item: "Hamburger",
+      quantity: 1,
       table_no: 0,
       note: "",
     });
-    setOrderItem("");
-    setOrderQuantity(0);
+    setOrderItem("Hamburger");
+    setOrderQuantity(1);
     setOrderTableNo(0);
     setOrderNote("");
     evt.target.reset();
@@ -66,12 +59,17 @@ const OrderForm = ({ updateOrders }: Props) => {
       </div>
 
       {/* ORDER FORM */}
-      <form>
+      <form onSubmit={saveNewOrder}>
         {/* ITEM SELECT */}
         <div>
           <label>
             Choose a food item:
-            <select name="food-items" id="food-item-select" required>
+            <select
+              name="food-items"
+              id="food-item-select"
+              required
+              onChange={handleItem}
+            >
               <optgroup label="Menu Items:">
                 <option value="Hamburger">Hamburger</option>
                 <option value="Fries">Fries</option>
@@ -85,7 +83,12 @@ const OrderForm = ({ updateOrders }: Props) => {
         <div>
           <label>
             Choose an amount:
-            <select name="food-quantity" id="food-quantity-select" required>
+            <select
+              name="food-quantity"
+              id="food-quantity-select"
+              required
+              onChange={handleQuantity}
+            >
               <option value="1">1</option>
               <option value="2">2</option>
               <option value="3">3</option>
@@ -107,6 +110,7 @@ const OrderForm = ({ updateOrders }: Props) => {
               maxLength={2}
               pattern="[0-9]"
               required
+              onChange={handleTableNo}
             />
           </label>
         </div>
@@ -120,13 +124,14 @@ const OrderForm = ({ updateOrders }: Props) => {
               cols={30}
               name="order-notes"
               id="order-notes-input"
+              onChange={handleNote}
             />
           </label>
         </div>
 
         {/* SUBMIT BUTTON */}
         <div>
-          <input type="submit" />
+          <input type="submit" value="Add Order" />
         </div>
       </form>
     </section>
