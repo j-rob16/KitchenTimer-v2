@@ -9,7 +9,7 @@ const Order = ({
   table_no,
   quantity,
   note,
-  key,
+  orderKey,
   updateCompletionTime,
 }: OrderType) => {
   const [orderIsOpen, setOrderIsOpen] = useState(true);
@@ -20,7 +20,9 @@ const Order = ({
   };
 
   useEffect(() => {
-    updateCompletionTime(key, completedTime);
+    if (completedTime > 0) {
+      updateCompletionTime(orderKey, completedTime);
+    }
   }, [completedTime]);
 
   return (

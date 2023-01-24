@@ -4,7 +4,7 @@ export interface OrderType {
   table_no?: number;
   note?: string;
   id?: number;
-  key?: number;
-  completedTime?: number | undefined;
-  updateCompletionTime?: (id: number, completedTime: number) => void;
+  orderKey: number;
+  completedTime?: number | null;
+  updateCompletionTime: (id: number, completedTime: number) => void;
 }

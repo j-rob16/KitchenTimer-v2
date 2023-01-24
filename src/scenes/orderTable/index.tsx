@@ -31,6 +31,7 @@ const OrderTable = ({ orders, updateCompletionTime }: Props) => {
                 table_no={order.table_no}
                 quantity={order.quantity}
                 note={order.note}
+                orderKey={i}
                 key={i}
                 updateCompletionTime={updateCompletionTime}
               />
