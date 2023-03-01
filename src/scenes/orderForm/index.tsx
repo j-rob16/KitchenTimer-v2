@@ -1,8 +1,8 @@
-import { OrderType } from "@/shared/types";
+import { CopiedOrderType } from "@/shared/types";
 import React, { useState } from "react";
 
 type Props = {
-  updateOrders: (value: OrderType) => void;
+  updateOrders: (value: CopiedOrderType) => void;
 };
 
 const OrderForm = ({ updateOrders }: Props) => {
@@ -31,7 +31,7 @@ const OrderForm = ({ updateOrders }: Props) => {
 
   const saveNewOrder = (evt: any) => {
     evt.preventDefault();
-    const copiedOrder: OrderType = {};
+    const copiedOrder: CopiedOrderType = {};
     copiedOrder.item = orderItem;
     copiedOrder.quantity = orderQuantity;
     copiedOrder.table_no = orderTableNo;
@@ -73,7 +73,10 @@ const OrderForm = ({ updateOrders }: Props) => {
               <optgroup label="Menu Items:">
                 <option value="Hamburger">Hamburger</option>
                 <option value="Fries">Fries</option>
-                <option value="Salad">Salad</option>
+                <option value="Ribeye Steak">Ribeye Steak</option>
+                <option value="Chicken Alfredo Fettuccine">
+                  Chicken Alfredo Fettuccine
+                </option>
               </optgroup>
             </select>
           </label>
