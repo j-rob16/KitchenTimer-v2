@@ -1,8 +1,8 @@
 export interface OrderType {
-  item: string;
-  quantity: number;
-  table_no: number;
-  note: string;
+  item?: string;
+  quantity?: number;
+  table_no?: number;
+  note?: string;
   id?: number;
   orderKey: number;
   completedTime?: number | null;

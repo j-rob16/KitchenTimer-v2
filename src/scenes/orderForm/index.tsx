@@ -1,8 +1,8 @@
-import { CopiedOrderType } from "@/shared/types";
+import { OrderType } from "@/shared/types";
 import React, { useState } from "react";
 
 type Props = {
-  updateOrders: (value: CopiedOrderType) => void;
+  updateOrders: (value: OrderType) => void | null;
 };
 
 const OrderForm = ({ updateOrders }: Props) => {
@@ -31,7 +31,9 @@ const OrderForm = ({ updateOrders }: Props) => {
 
   const saveNewOrder = (evt: any) => {
     evt.preventDefault();
-    const copiedOrder: CopiedOrderType = {};
+    const copiedOrder: OrderType = {orderKey: 0, updateCompletionTime(id, completedTime) {
+        return null
+    },};
     copiedOrder.item = orderItem;
     copiedOrder.quantity = orderQuantity;
     copiedOrder.table_no = orderTableNo;

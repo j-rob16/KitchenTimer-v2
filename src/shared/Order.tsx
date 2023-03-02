@@ -2,8 +2,6 @@ import { useEffect, useState } from "react";
 import Timer from "./Timer";
 import { OrderType } from "./types";
 
-type Props = {};
-
 const Order = ({
   item,
   table_no,
