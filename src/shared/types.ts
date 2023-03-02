@@ -15,3 +15,7 @@ export interface CopiedOrderType {
   table_no?: number;
   note?: string;
 }
+
+export interface TrackerType {
+  totalOrdersCompleted: number;
+}
