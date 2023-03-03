@@ -5,7 +5,7 @@ export interface OrderType {
   note?: string;
   id?: number;
   orderKey: number;
-  completedTime?: number | null;
+  completedTime: number;
   updateCompletionTime: (id: number, completedTime: number) => void;
 }
 
@@ -18,4 +18,5 @@ export interface CopiedOrderType {
 
 export interface TrackerType {
   totalOrdersCompleted: number;
+  averageOrderTime: number;
 }

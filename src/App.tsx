@@ -3,6 +3,7 @@ import OrderForm from "@/scenes/orderForm";
 import OrderTable from "@/scenes/orderTable";
 import PerformanceTracker from "@/scenes/performanceTracking";
 import { OrderType } from "@/shared/types";
+import { type } from "os";
 
 function App() {
   const [orders, setOrders] = useState<Array<OrderType>>([]);
@@ -25,6 +26,16 @@ function App() {
     copiedOrders[pendingOrderIndex].completedTime = completedTime;
     setOrders(copiedOrders);
 
+    if (orders.length > 0) {
+      const completedOrderArray = orders.map((order, i) => {
+        return order.completedTime;
+      }); 
+      console.log(completedOrderArray);
+      const totalOrderTime = completedOrderArray.reduce<number>((sumValue, currValue) => sumValue + currValue, 0);
+      const averageOrderTime = totalOrderTime / orders.length;
+      setAverageOrderTime(averageOrderTime);
+    }
+
     setTotalOrdersCompleted(orders.length);
   };
 
@@ -32,7 +43,7 @@ function App() {
     <div className="app">
       <OrderForm updateOrders={updateOrders} />
       <OrderTable orders={orders} updateCompletionTime={updateCompletionTime} />
-      <PerformanceTracker totalOrdersCompleted={totalOrdersCompleted} />
+      <PerformanceTracker totalOrdersCompleted={totalOrdersCompleted} averageOrderTime={averageOrderTime} />
     </div>
   );
 }

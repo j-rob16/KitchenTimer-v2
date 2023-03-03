@@ -31,7 +31,7 @@ const OrderForm = ({ updateOrders }: Props) => {
 
   const saveNewOrder = (evt: any) => {
     evt.preventDefault();
-    const copiedOrder: OrderType = {orderKey: 0, updateCompletionTime(id, completedTime) {
+    const copiedOrder: OrderType = {completedTime: 0, orderKey: 0, updateCompletionTime(id, completedTime) {
         return null
     },};
     copiedOrder.item = orderItem;
