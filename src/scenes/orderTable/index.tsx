@@ -34,6 +34,7 @@ const OrderTable = ({ orders, updateCompletionTime }: Props) => {
                 orderKey={i}
                 key={i}
                 updateCompletionTime={updateCompletionTime}
+                completedTime={order.completedTime}
               />
             ))}
           </tbody>

@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
 
 type Props = {
-  timerIsOn: any;
+  timerIsOn: boolean;
   getCompletedTime: (time: number) => void;
+  getCurrentTime: (time: number) => void;
 };
 
-function Timer({ timerIsOn, getCompletedTime }: Props) {
+function Timer({ timerIsOn, getCompletedTime, getCurrentTime }: Props) {
   const [time, setTime] = useState(0);
   // const [timerOn, setTimerOn] = useState(false);
 
@@ -23,6 +24,10 @@ function Timer({ timerIsOn, getCompletedTime }: Props) {
 
     return () => clearInterval(interval);
   }, [timerIsOn]);
+
+  useEffect(() => {
+    getCurrentTime(time);
+  }, [time])
 
   return (
     <>
