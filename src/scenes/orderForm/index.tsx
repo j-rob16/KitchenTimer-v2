@@ -63,7 +63,7 @@ const OrderForm = ({ updateOrders }: Props) => {
         <div className="grid grid-cols-2 grid-rows-3 gap-4">
           <div className="w-full row-span-1 col-span-2 sm:col-span-1 grid-flow-col">
             <label>
-              Choose a food item:
+              Choose a menu item:
               <select
                 name="food-items"
                 id="food-item-select"
@@ -72,6 +72,7 @@ const OrderForm = ({ updateOrders }: Props) => {
                 className="w-full p-4 rounded-md font-semibold mt-2"
               >
                 <optgroup label="Menu Items:">
+                  <option value="" selected disabled hidden>Menu Items</option>
                   <option value="Hamburger">Hamburger</option>
                   <option value="Fries">Fries</option>
                   <option value="Ribeye Steak">Ribeye Steak</option>

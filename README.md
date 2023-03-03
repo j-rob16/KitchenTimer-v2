@@ -102,7 +102,7 @@ In order to run the product, npm must be installed on your machine in order to d
 - [x] Fix issues with performance tracking. All open orders currently being pushed to the tracker while still open.
 - [ ] Flesh out the Performance tracking section with more information.
 - [x] Add tailwindCss to the application and work on all sections.
-- [ ] Fix Bug where a second order to the same table number returns 0
+- [x] Fix Bug where a second order to the same table number returns 0
 
 
 <!-- See the [open issues](https://github.com/othneildrew/Best-README-Template/issues) for a full list of proposed features (and known issues). -->
