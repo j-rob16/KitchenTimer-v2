@@ -57,7 +57,7 @@ const OrderForm = ({ updateOrders }: Props) => {
     <section className="w-5/6 mx-auto mt-16">
       {/* SECTION TITLE */}
       <div>
-        <h1 className="text-xl py-2">New Order:</h1>
+        <h1 className="text-xl py-2">New Order</h1>
       </div>
 
       {/* ORDER FORM */}
@@ -67,7 +67,7 @@ const OrderForm = ({ updateOrders }: Props) => {
       >
         {/* ITEM SELECT */}
         <div className="grid grid-cols-2 grid-rows-3 gap-4">
-          <div className="row-span-1 col-span-2 flex justify-center grid-flow-col">
+          <div className="row-span-1 col-span-2 sm:col-span-1 flex justify-center grid-flow-col">
             <label>
               Choose a food item:
               <select
@@ -110,7 +110,7 @@ const OrderForm = ({ updateOrders }: Props) => {
           </div>
 
           {/* TABLE SELECT */}
-          <div className="row-start-2 col-span-1">
+          <div className="row-start-2 sm:row-start-3 col-span-1">
             <label>
               Table Number:
               <input
@@ -128,7 +128,7 @@ const OrderForm = ({ updateOrders }: Props) => {
           </div>
 
           {/* NOTES INPUT */}
-          <div className="col-span-2">
+          <div className="col-span-2 sm:col-span-1 sm:col-start-2 sm:row-span-3">
             <label>
               Notes:
               <textarea
@@ -137,7 +137,7 @@ const OrderForm = ({ updateOrders }: Props) => {
                 name="order-notes"
                 id="order-notes-input"
                 onChange={handleNote}
-                className="w-full p-4 mt-2 flex justify-center rounded-md font-semibold"
+                className="w-full h-[90%] p-4 mt-2 flex justify-center rounded-md font-semibold"
               />
             </label>
           </div>

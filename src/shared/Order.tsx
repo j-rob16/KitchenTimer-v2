@@ -47,16 +47,25 @@ const Order = ({
       <td>{quantity}</td>
       <td>{note}</td>
       <td>
-        <Timer timerIsOn={orderIsOpen} getCompletedTime={getCompletedTime} getCurrentTime={getCurrentTime} />
+        <Timer
+          timerIsOn={orderIsOpen}
+          getCompletedTime={getCompletedTime}
+          getCurrentTime={getCurrentTime}
+        />
       </td>
       <td>
-        <button
-          onClick={() => {
-            setOrderIsOpen(false);
-          }}
-        >
-          Complete Order
-        </button>
+        { orderIsOpen ? 
+          <button
+            onClick={() => {
+              setOrderIsOpen(false);
+            }}
+            className={`bg-blue-500 hover:bg-blue-700 hover:cursor-pointer text-white font-bold py-2 px-4 border border-blue-700 rounded my-3 w-full`}
+          >
+            Complete Order
+          </button>
+        : 
+        <p>Order Completed</p>
+      }
       </td>
     </tr>
   );
