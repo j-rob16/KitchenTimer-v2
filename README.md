@@ -42,6 +42,9 @@
 
 <p>A Kitchen Display designed to be used in commercial kitchens to track food orders. </p>
 <p>The application consists of a single page with 3 distinct sections</p>
+* An Order Form. Place an order to the kitchen from the options that are available.
+* Orders Table. View the Pending Orders in the Kitchen. Track the orders have been open for and close them when completed.
+* Performance Tracking. View how many orders have been completed & the average order time of all the orders placed to the kitchen.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -84,6 +87,10 @@ In order to run the product, npm must be installed on your machine in order to d
    ```sh
    npm install
    ```
+3. Run the application
+   ```sh
+   npm run dev
+   ```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -92,10 +99,9 @@ In order to run the product, npm must be installed on your machine in order to d
 <!-- ROADMAP -->
 ## Roadmap
 
-- [x] Fix issues with contact-me box sizing
-- [ ] Fix issues on Safari with icon sizing
-- [x] Change the language tab buttons to reflect the language properly
-- [ ] Expand projects section with React-Router
+- [ ] Fix issues with performance tracking. All open orders currently being pushed to the tracker while still open.
+- [ ] Flesh out the Performance tracking section with more information.
+- [x] Add tailwindCss to the application and work on all sections.
 
 
 <!-- See the [open issues](https://github.com/othneildrew/Best-README-Template/issues) for a full list of proposed features (and known issues). -->
