@@ -54,89 +54,102 @@ const OrderForm = ({ updateOrders }: Props) => {
   };
 
   return (
-    <section>
+    <section className="w-5/6 mx-auto mt-16">
       {/* SECTION TITLE */}
       <div>
-        <h1>New Order:</h1>
+        <h1 className="text-xl py-2">New Order</h1>
       </div>
 
       {/* ORDER FORM */}
-      <form onSubmit={saveNewOrder}>
+      <form
+        onSubmit={saveNewOrder}
+        className="border rounded-lg p-2 bg-blue-100"
+      >
         {/* ITEM SELECT */}
-        <div>
-          <label>
-            Choose a food item:
-            <select
-              name="food-items"
-              id="food-item-select"
-              required
-              onChange={handleItem}
-            >
-              <optgroup label="Menu Items:">
-                <option value="Hamburger">Hamburger</option>
-                <option value="Fries">Fries</option>
-                <option value="Ribeye Steak">Ribeye Steak</option>
-                <option value="Chicken Alfredo Fettuccine">
-                  Chicken Alfredo Fettuccine
-                </option>
-              </optgroup>
-            </select>
-          </label>
-        </div>
+        <div className="grid grid-cols-2 grid-rows-3 gap-4">
+          <div className="row-span-1 col-span-2 sm:col-span-1 flex justify-center grid-flow-col">
+            <label>
+              Choose a food item:
+              <select
+                name="food-items"
+                id="food-item-select"
+                required
+                onChange={handleItem}
+                className="w-full p-4 rounded-md font-semibold mt-2"
+              >
+                <optgroup label="Menu Items:">
+                  <option value="Hamburger">Hamburger</option>
+                  <option value="Fries">Fries</option>
+                  <option value="Ribeye Steak">Ribeye Steak</option>
+                  <option value="Chicken Alfredo Fettuccine">
+                    Chicken Alfredo Fettuccine
+                  </option>
+                </optgroup>
+              </select>
+            </label>
+          </div>
 
-        {/* QUANTITY SELECT */}
-        <div>
-          <label>
-            Choose an amount:
-            <select
-              name="food-quantity"
-              id="food-quantity-select"
-              required
-              onChange={handleQuantity}
-            >
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
-              <option value="5">5</option>
-            </select>
-          </label>
-        </div>
+          {/* QUANTITY SELECT */}
+          <div className="row-start-2 col-span-1">
+            <label className="pb-4">
+              Quantity:
+              <select
+                name="food-quantity"
+                id="food-quantity-select"
+                required
+                onChange={handleQuantity}
+                className="w-full p-4 mt-2 flex justify-center rounded-md font-semibold"
+              >
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+              </select>
+            </label>
+          </div>
 
-        {/* TABLE SELECT */}
-        <div>
-          <label>
-            Choose a table number:
-            <input
-              type="text"
-              name="table-number"
-              id="table-number-select"
-              size={2}
-              maxLength={2}
-              pattern="[0-9]"
-              required
-              onChange={handleTableNo}
-            />
-          </label>
-        </div>
+          {/* TABLE SELECT */}
+          <div className="row-start-2 sm:row-start-3 col-span-1">
+            <label>
+              Table Number:
+              <input
+                type="text"
+                name="table-number"
+                id="table-number-select"
+                size={2}
+                maxLength={2}
+                pattern="[0-9]"
+                required
+                onChange={handleTableNo}
+                className="w-full p-4 mt-2 flex justify-center rounded-md font-semibold"
+              />
+            </label>
+          </div>
 
-        {/* NOTES INPUT */}
-        <div>
-          <label>
-            Notes:
-            <textarea
-              rows={10}
-              cols={30}
-              name="order-notes"
-              id="order-notes-input"
-              onChange={handleNote}
-            />
-          </label>
+          {/* NOTES INPUT */}
+          <div className="col-span-2 sm:col-span-1 sm:col-start-2 sm:row-span-3">
+            <label>
+              Notes:
+              <textarea
+                rows={3}
+                cols={33}
+                name="order-notes"
+                id="order-notes-input"
+                onChange={handleNote}
+                className="w-full h-[90%] p-4 mt-2 flex justify-center rounded-md font-semibold"
+              />
+            </label>
+          </div>
         </div>
 
         {/* SUBMIT BUTTON */}
-        <div>
-          <input type="submit" value="Add Order" />
+        <div className="flex justify-center">
+          <input
+            type="submit"
+            value="Add Order"
+            className="bg-blue-500 hover:bg-blue-700 hover:cursor-pointer text-white font-bold py-2 px-4 border border-blue-700 rounded my-3 w-full"
+          />
         </div>
       </form>
     </section>

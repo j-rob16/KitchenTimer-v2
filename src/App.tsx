@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Header from "@/scenes/header";
 import OrderForm from "@/scenes/orderForm";
 import OrderTable from "@/scenes/orderTable";
 import PerformanceTracker from "@/scenes/performanceTracking";
@@ -30,7 +31,6 @@ function App() {
       const completedOrderArray = orders.map((order, i) => {
         return order.completedTime;
       }); 
-      console.log(completedOrderArray);
       const totalOrderTime = completedOrderArray.reduce<number>((sumValue, currValue) => sumValue + currValue, 0);
       const averageOrderTime = totalOrderTime / orders.length;
       setAverageOrderTime(averageOrderTime);
@@ -41,6 +41,7 @@ function App() {
 
   return (
     <div className="app">
+      <Header />
       <OrderForm updateOrders={updateOrders} />
       <OrderTable orders={orders} updateCompletionTime={updateCompletionTime} />
       <PerformanceTracker totalOrdersCompleted={totalOrdersCompleted} averageOrderTime={averageOrderTime} />

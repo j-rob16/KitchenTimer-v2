@@ -9,19 +9,20 @@ type Props = {
 
 const OrderTable = ({ orders, updateCompletionTime }: Props) => {
   return (
-    <section>
+    <section className="w-full mx-auto mt-12">
       <div>
-        <h2>Orders</h2>
+        <h2 className="text-xl py-2 pl-8">Orders</h2>
       </div>
-      <div>
-        <table>
-          <thead>
-            <tr>
-              <th>Item</th>
-              <th>Table No.</th>
-              <th>qty.</th>
-              <th>Note</th>
-              <th>Time Elapsed</th>
+      <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
+        <table className="w-full text-sm text-center border-collapse">
+          <thead className="text-xs text-gray-700 uppercase">
+            <tr className="text-sm p-4 bg-blue-300">
+              <th className="px-6 py-3">Item</th>
+              <th className="px-6 py-3">Table</th>
+              <th className="px-6 py-3">qty.</th>
+              <th className="px-6 py-3">Note</th>
+              <th className="px-6 py-3">Time</th>
+              <th>Action</th>
             </tr>
           </thead>
           <tbody>
