@@ -31,7 +31,6 @@ function App() {
       const completedOrderArray = orders.map((order, i) => {
         return order.completedTime;
       }); 
-      console.log(completedOrderArray);
       const totalOrderTime = completedOrderArray.reduce<number>((sumValue, currValue) => sumValue + currValue, 0);
       const averageOrderTime = totalOrderTime / orders.length;
       setAverageOrderTime(averageOrderTime);
