@@ -9,7 +9,7 @@ type Props = {
 
 const OrderTable = ({ orders, updateCompletionTime }: Props) => {
   return (
-    <section>
+    <section className="w-5/6 mx-auto">
       <div>
         <h2>Orders</h2>
       </div>

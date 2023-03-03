@@ -54,7 +54,7 @@ const OrderForm = ({ updateOrders }: Props) => {
   };
 
   return (
-    <section>
+    <section className="w-5/6 mx-auto mt-16">
       {/* SECTION TITLE */}
       <div>
         <h1>New Order:</h1>

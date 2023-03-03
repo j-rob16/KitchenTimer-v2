@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Header from "@/scenes/header";
 import OrderForm from "@/scenes/orderForm";
 import OrderTable from "@/scenes/orderTable";
 import PerformanceTracker from "@/scenes/performanceTracking";
@@ -41,6 +42,7 @@ function App() {
 
   return (
     <div className="app">
+      <Header />
       <OrderForm updateOrders={updateOrders} />
       <OrderTable orders={orders} updateCompletionTime={updateCompletionTime} />
       <PerformanceTracker totalOrdersCompleted={totalOrdersCompleted} averageOrderTime={averageOrderTime} />
