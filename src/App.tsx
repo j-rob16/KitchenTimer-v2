@@ -27,15 +27,17 @@ function App() {
     setOrders(copiedOrders);
 
     if (orders.length > 0) {
-      const completedOrderArray = orders.map((order, i) => {
+      const completedOrderArray = orders.filter((order) => {
+        return order.completedTime > 0;
+      }).map((order, i) => {
         return order.completedTime;
       }); 
       const totalOrderTime = completedOrderArray.reduce<number>((sumValue, currValue) => sumValue + currValue, 0);
-      const averageOrderTime = totalOrderTime / orders.length;
+      const averageOrderTime = totalOrderTime / completedOrderArray.length;
       setAverageOrderTime(averageOrderTime);
+      setTotalOrdersCompleted(completedOrderArray.length);
     }
 
-    setTotalOrdersCompleted(orders.length);
   };
 
   return (

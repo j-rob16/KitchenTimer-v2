@@ -40,15 +40,9 @@ const OrderForm = ({ updateOrders }: Props) => {
     copiedOrder.note = orderNote;
     setOrder(copiedOrder);
     updateOrders(copiedOrder);
-    setOrder({
-      item: "Hamburger",
-      quantity: 1,
-      table_no: 0,
-      note: "",
-    });
     setOrderItem("Hamburger");
     setOrderQuantity(1);
-    setOrderTableNo(0);
+    setOrderTableNo(copiedOrder.table_no);
     setOrderNote("");
     evt.target.reset();
   };
