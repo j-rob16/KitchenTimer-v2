@@ -67,7 +67,7 @@ const OrderForm = ({ updateOrders }: Props) => {
       >
         {/* ITEM SELECT */}
         <div className="grid grid-cols-2 grid-rows-3 gap-4">
-          <div className="row-span-1 col-span-2 sm:col-span-1 flex justify-center grid-flow-col">
+          <div className="w-full row-span-1 col-span-2 sm:col-span-1 grid-flow-col">
             <label>
               Choose a food item:
               <select
@@ -137,7 +137,7 @@ const OrderForm = ({ updateOrders }: Props) => {
                 name="order-notes"
                 id="order-notes-input"
                 onChange={handleNote}
-                className="w-full h-[90%] p-4 mt-2 flex justify-center rounded-md font-semibold"
+                className="w-full h-[89%] p-4 mt-2 flex justify-center rounded-md font-semibold"
               />
             </label>
           </div>

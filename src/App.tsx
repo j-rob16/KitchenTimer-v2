@@ -4,7 +4,6 @@ import OrderForm from "@/scenes/orderForm";
 import OrderTable from "@/scenes/orderTable";
 import PerformanceTracker from "@/scenes/performanceTracking";
 import { OrderType } from "@/shared/types";
-import { type } from "os";
 
 function App() {
   const [orders, setOrders] = useState<Array<OrderType>>([]);

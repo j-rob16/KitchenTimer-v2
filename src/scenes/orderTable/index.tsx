@@ -11,7 +11,7 @@ const OrderTable = ({ orders, updateCompletionTime }: Props) => {
   return (
     <section className="w-full mx-auto mt-12">
       <div>
-        <h2 className="text-xl py-2 pl-8">Orders</h2>
+        <h2 className="text-xl py-2 pl-[8.3%]">Orders</h2>
       </div>
       <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
         <table className="w-full text-sm text-center border-collapse">
