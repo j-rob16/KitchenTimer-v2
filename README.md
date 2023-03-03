@@ -2,7 +2,7 @@
 <br />
 <div align="center">
 
-  <h3 align="center">James Robbins</h3>
+  <h3 align="center">Kitchen Display</h3>
 
   <p align="center">
     
